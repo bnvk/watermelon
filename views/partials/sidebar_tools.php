@@ -1,0 +1,1 @@
+<li><a class="sidebar_icon" href="<?= base_url() ?>home/watermelon/create"><img src="<?= $this_module_assets ?>watermelon_24.png"><span>Watermelon</span></a></li>

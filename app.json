@@ -1,0 +1,12 @@
+{
+	"app":"watermelon",
+	"name":"Watermelon",
+	"created":"2012-12-15",
+	"updated":"2012-12-15",
+	"creator":"Brennan Novak",
+	"category":"tools",
+	"links":{
+		"default":"home/watermelon/create"
+	},
+	"launcher":"yes"
+}
