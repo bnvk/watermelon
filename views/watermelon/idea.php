@@ -4,10 +4,6 @@
 	<p><?= $idea->content ?></p>
 </div>
 <?= modules::run('ratings/widgets_vote_up_down', array('object' => 'content', 'object_id' => $idea->content_id, 'class' => 'group_idea_list_vote')); ?>
-<script type="text/javascript">
-	$.getScript(base_url + "ratings/vote_up_down", function() { renderVotesMultiple('.group_idea_list_vote'); });
-</script>
-
 
 <div id="idea_left">
 	<?php if ($idea_meta): ?>

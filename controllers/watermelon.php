@@ -24,7 +24,13 @@ class Watermelon extends Site_Controller
 
 	function view()
 	{
-		if ($this->uri->segment(3)) redirect(base_url().'watermelon/idea/'.$this->uri->segment(3));
+		if (config_item('watermelon_url_structure') == 'seo_friendly'):
+			if ($idea = $this->social_igniter->get_content($this->uri->segment($this->uri->total_segments()))):
+				redirect('/watermelon/idea/'.$idea->title_url);
+			endif;
+		else:
+			if ($this->uri->segment(3)) redirect(base_url().'watermelon/idea/'.$this->uri->segment(3));
+		endif;
 	}
 
 	function group()
@@ -62,7 +68,7 @@ class Watermelon extends Site_Controller
 			$idea = $this->social_igniter->get_content($this->uri->segment($this->uri->total_segments()));	
 		endif;
 
-		if (!$idea) redirect(base_url().'error');
+		//if (!$idea) redirect(base_url().'error');
 
 		$this->data['idea']			= $idea;
 		$this->data['idea_meta']	= $this->social_igniter->get_meta_content($idea->content_id); 

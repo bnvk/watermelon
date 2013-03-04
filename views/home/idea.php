@@ -6,8 +6,10 @@
 
 		<p>
 			<input type="text" name="title" id="title" class="input_full" value="<?= $title ?>" placeholder="Magic Carpet" />
+			<span id="title_slug" class="slug_url" style="display:block;"></span>
 			<span id="title_error"></span>
 		</p>
+
 
 		<div class="content_columns width_300">
 		    <h3>Group</h3>
@@ -51,6 +53,9 @@ $(document).ready(function()
 {
 	// Autocomplete Tags
 	autocomplete("#tags", 'api/tags/all', 'tag');
+
+	// Slugify
+	$('#title').slugify({url:base_url + current_module + '/idea/', slug:'#title_slug', name:'title_url', slugValue:'<?= $title_url ?>'});
 
 	// Add Category
 	$('#category_id').categoryManager(
